@@ -30,6 +30,9 @@ const Vaccinations = lazy(() => import('./pages/Vaccinations'));
 const Allergies = lazy(() => import('./pages/Allergies'));
 const FamilyAccounts = lazy(() => import('./pages/FamilyAccounts'));
 const MedicalTimeline = lazy(() => import('./pages/MedicalTimeline'));
+const HealthGoals = lazy(() => import('./pages/HealthGoals'));
+const LabTests = lazy(() => import('./pages/LabTests'));
+const Insurance = lazy(() => import('./pages/Insurance'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Optimized loading component with better visual feedback
@@ -266,6 +269,30 @@ function AppRoutes() {
         element={
           <ProtectedRoute allowedRoles={['patient', 'doctor']}>
             <MedicalTimeline />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/health-goals"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <HealthGoals />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/lab-tests"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <LabTests />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/insurance"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <Insurance />
           </ProtectedRoute>
         }
       />

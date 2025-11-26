@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group flex-shrink-0">
             <div className="h-11 w-11 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300 transform group-hover:scale-110">
               <Heart className="h-6 w-6 text-white" />
             </div>
@@ -58,7 +58,7 @@ export default function Navbar() {
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-1 flex-1 justify-center max-w-4xl mx-8">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const active = isActive(link.to);
@@ -66,37 +66,38 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105 ${
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-xl transition-all duration-300 transform hover:scale-105 ${
                     active 
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md' 
                       : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600'
                   }`}
                 >
                   <Icon className="h-5 w-5" />
-                  <span className="font-medium">{link.label}</span>
+                  <span className="font-medium text-sm">{link.label}</span>
                 </Link>
               );
             })}
           </div>
+          
           {/* User Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <Link
               to="/profile"
-              className={`hidden md:flex items-center space-x-3 px-4 py-2 rounded-xl transition-all duration-300 ${
+              className={`hidden md:flex items-center space-x-2 px-3 py-2 rounded-xl transition-all duration-300 ${
                 isActive('/profile')
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 shadow-md'
                   : 'bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100'
               }`}
             > 
-              <div className={`h-9 w-9 rounded-lg flex items-center justify-center ${
+              <div className={`h-8 w-8 rounded-lg flex items-center justify-center ${
                 isActive('/profile')
                   ? 'bg-white/20'
                   : 'bg-gradient-to-br from-blue-600 to-purple-600'
               }`}>
-                <User className={`h-5 w-5 ${isActive('/profile') ? 'text-white' : 'text-white'}`} />
+                <User className="h-4 w-4 text-white" />
               </div>
               <div className="text-left">
-                <p className={`text-sm font-semibold ${isActive('/profile') ? 'text-white' : 'text-gray-900'}`}>
+                <p className={`text-xs font-semibold ${isActive('/profile') ? 'text-white' : 'text-gray-900'}`}>
                   {user?.name}
                 </p>
                 <p className={`text-xs capitalize flex items-center gap-1 ${isActive('/profile') ? 'text-white/80' : 'text-gray-600'}`}>
@@ -108,10 +109,10 @@ export default function Navbar() {
             
             <button
               onClick={handleLogout}
-              className="flex items-center space-x-2 px-4 py-2.5 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-red-200"
+              className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-300 transform hover:scale-105 border-2 border-transparent hover:border-red-200"
             >
               <LogOut className="h-5 w-5" />
-              <span className="hidden md:inline font-medium">Logout</span>
+              <span className="hidden lg:inline font-medium text-sm">Logout</span>
             </button>
           </div>
         </div>

@@ -63,6 +63,9 @@ app.use('/api/vaccinations', require('./routes/vaccinations'));
 app.use('/api/allergies', require('./routes/allergies'));
 app.use('/api/family', require('./routes/family'));
 app.use('/api/timeline', require('./routes/timeline'));
+app.use('/api/health-goals', require('./routes/healthGoals'));
+app.use('/api/lab-tests', require('./routes/labTests'));
+app.use('/api/insurance', require('./routes/insurance'));
 
 // Health check
 app.get('/health', (req, res) => {

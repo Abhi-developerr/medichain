@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
-import { FileText, Upload, Bell, Copy, CheckCircle, Clock, Sparkles, TrendingUp, Syringe, AlertTriangle, Users, History } from 'lucide-react';
+import { FileText, Upload, Bell, Copy, CheckCircle, Clock, Sparkles, TrendingUp, Syringe, AlertTriangle, Users, History, Target, FlaskConical, Shield } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 
@@ -206,6 +206,42 @@ export default function PatientDashboard() {
               <History className="h-8 w-8 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Timeline</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Medical history timeline</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Advanced Features Section */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <div className="h-2 w-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+            Advanced Health Tools
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link
+              to="/health-goals"
+              className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-blue-800/30 transition-all border border-blue-200 dark:border-blue-700/50 hover:border-blue-400 dark:hover:border-blue-500 backdrop-blur-sm">
+            >
+              <Target className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Health Goals</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Track your health objectives</p>
+            </Link>
+
+            <Link
+              to="/lab-tests"
+              className="group bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/40 dark:to-green-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-green-800/30 transition-all border border-green-200 dark:border-green-700/50 hover:border-green-400 dark:hover:border-green-500 backdrop-blur-sm">
+            >
+              <FlaskConical className="h-8 w-8 text-green-600 dark:text-green-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Lab Tests</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Manage test results</p>
+            </Link>
+
+            <Link
+              to="/insurance"
+              className="group bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/40 dark:to-orange-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-orange-800/30 transition-all border border-orange-200 dark:border-orange-700/50 hover:border-orange-400 dark:hover:border-orange-500 backdrop-blur-sm">
+            >
+              <Shield className="h-8 w-8 text-orange-600 dark:text-orange-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Insurance</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Policy & claims management</p>
             </Link>
           </div>
         </div>
