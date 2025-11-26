@@ -30,14 +30,14 @@ export default function Login() {
       <div className="absolute top-40 right-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{animationDelay: '2s'}}></div>
       <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{animationDelay: '4s'}}></div>
       
-      <div className="max-w-md w-full space-y-8 glass-effect p-8 rounded-3xl shadow-2xl relative z-10 animate-scale-in">
+      <div className="max-w-md w-full space-y-8 glass-effect dark:bg-gray-800/95 p-8 rounded-3xl shadow-2xl relative z-10 animate-scale-in transition-colors duration-200">
         {/* Logo */}
         <div className="text-center">
           <div className="mx-auto h-20 w-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-glow transform hover:scale-110 transition-transform duration-300">
             <Heart className="h-10 w-10 text-white animate-pulse-slow" />
           </div>
           <h2 className="mt-6 text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">MediChain</h2>
-          <p className="mt-2 text-sm text-gray-600 flex items-center justify-center gap-2">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 flex items-center justify-center gap-2">
             <Sparkles className="h-4 w-4 text-purple-500" />
             Sign in to your account
             <Sparkles className="h-4 w-4 text-blue-500" />
@@ -48,7 +48,7 @@ export default function Login() {
           <div className="space-y-5">
             {/* Email Input */}
             <div className="animate-slide-up">
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
                 Email Address
               </label>
               <div className="relative group">

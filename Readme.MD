@@ -1,6 +1,6 @@
 # 🏥 MediChain - Smart Medical Records Management System
 
-![MediChain](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![MediChain](https://img.shields.io/badge/version-3.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)
 ![MongoDB](https://img.shields.io/badge/mongodb-%3E%3D5.0-green.svg)
@@ -17,15 +17,19 @@ A comprehensive, secure, full-stack web application for managing medical records
 - 📁 **Document Management** - View, download, and delete uploaded reports
 - 📄 **PDF Export** - Export complete medical history to PDF
 - 🔑 **Share Code System** - Generate unique codes to share data with doctors
-- 💊 **Prescriptions** - View and manage doctor prescriptions
+- 💊 **Prescriptions** - View and manage doctor prescriptions with drug interaction checking
 - 📅 **Appointments** - Book, view, and manage appointments with doctors
 - 📊 **Health Metrics** - Track weight, blood pressure, heart rate, and blood sugar
+- 💉 **Vaccination Records** - Complete immunization tracking with reminders
+- 🚨 **Allergy Management** - Comprehensive allergy tracking with severity levels
+- 👨‍👩‍👧‍👦 **Family Accounts** - Manage health records for entire family
+- ⏱️ **Medical Timeline** - Chronological view of complete medical history
 - 🚨 **Emergency Contacts** - Manage emergency contact information
 - 💬 **Messaging** - Direct communication with doctors
 - ⭐ **Doctor Reviews** - Rate and review healthcare providers
 - 🔔 **Notifications** - Real-time updates for appointments, prescriptions, and messages
 - 📈 **Analytics** - Visual insights into health metrics and reports
-- 🔒 **Two-Factor Authentication** - Enhanced account security
+- 🔒 **Two-Factor Authentication** - Enhanced account security with TOTP
 - 📋 **Activity Logs** - Track account activity and actions
 - 🌙 **Dark Mode** - Eye-friendly theme option
 
@@ -33,11 +37,11 @@ A comprehensive, secure, full-stack web application for managing medical records
 - ✅ **Account Verification** - Admin-approved doctor accounts with ratings
 - 🔍 **Patient Access** - View patient records using share codes
 - 📝 **Add Medical Notes** - Document observations and recommendations
-- 💊 **Prescriptions** - Create and manage patient prescriptions
+- 💊 **Smart Prescriptions** - Create prescriptions with automatic drug interaction & allergy checking
 - 📅 **Appointment Management** - View and manage patient appointments
 - 💬 **Patient Communication** - Direct messaging with patients
 - ⭐ **Reviews & Ratings** - View patient feedback and ratings
-- 📊 **Patient Overview** - Complete medical history access
+- 📊 **Patient Overview** - Complete medical history access including timeline
 - 🏷️ **Status Management** - Mark reports as reviewed, pending, or urgent
 
 ### 🧑‍💻 For Admins
@@ -463,6 +467,76 @@ Password: password123
 - [ ] Export to PDF functionality
 - [ ] Appointment scheduling
 - [ ] Insurance integration
+
+---
+
+## 🆕 New Features in v3.0
+
+### 🎯 Practical Features
+
+#### 💉 Vaccination Records
+- **Complete Immunization Tracking**: Record all vaccinations with dose numbers and schedules
+- **Automatic Reminders**: Get notified when next doses are due
+- **Batch & Manufacturer Details**: Track vaccine batches and manufacturers
+- **Side Effects Logging**: Document any adverse reactions
+- **Certificate Storage**: Store vaccination certificates
+
+#### 🚨 Allergy Management
+- **Severity Levels**: Track mild to life-threatening allergies
+- **Category Classification**: Medication, food, environmental, and other allergies
+- **Reaction History**: Log all allergic reactions with timestamps
+- **Critical Alerts**: Prominently display severe allergies
+- **Automatic Medication Checking**: Alert doctors when prescribing conflicting medications
+
+#### 👨‍👩‍👧‍👦 Family Accounts
+- **Multi-Member Management**: Add and manage health records for entire family
+- **Relationship Tracking**: Spouse, children, parents, siblings, grandparents
+- **Shared Medical History**: Track hereditary conditions across family
+- **Individual Profiles**: Separate vaccination, allergy, and health records for each member
+- **Family Health Summary**: Overview of active conditions and upcoming vaccinations
+
+#### ⏱️ Medical History Timeline
+- **Chronological View**: Complete medical history in timeline format
+- **Multi-Source Aggregation**: Combines reports, prescriptions, appointments, vaccinations, allergies, and health metrics
+- **Smart Filtering**: Filter by event type, date range
+- **Search Functionality**: Quick search across all medical events
+- **Visual Organization**: Month-by-month grouping with color-coded events
+- **Export Capability**: Generate comprehensive medical history reports
+
+#### 💊 Medication Interaction Checker
+- **Drug-Drug Interactions**: Automatically check for dangerous medication combinations
+- **Allergy Cross-Check**: Verify prescriptions against patient allergies before creation
+- **Active Medication Review**: Compare new prescriptions with current medications
+- **Severity Classification**: Critical errors vs warnings
+- **Real-Time Alerts**: Instant feedback for doctors during prescription creation
+- **Comprehensive Database**: Built-in drug interaction knowledge base
+
+### 🔒 Security Enhancements (v2.0)
+- Two-factor authentication with TOTP
+- Audit logging for all system actions
+- Activity tracking for user actions
+- Enhanced session management
+
+### 📄 Document Management (v2.0)
+- PDF export of complete medical records
+- Single report PDF generation
+- Batch document operations
+
+### 💬 Communication Features (v2.0)
+- Direct messaging between patients and doctors
+- Real-time notifications
+- Message threading and history
+
+### 📊 Health Tracking (v2.0)
+- Comprehensive health metrics monitoring
+- Visual analytics and trends
+- Goal setting and tracking
+
+### 🎨 UI/UX Improvements (v2.0)
+- Dark mode support
+- Responsive design
+- Enhanced accessibility
+- Improved performance with lazy loading
 
 ---
 

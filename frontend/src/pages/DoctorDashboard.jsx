@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { Search, FileText, Download, Eye, Users, CheckCircle, Clock, MessageSquare, Sparkles } from 'lucide-react';
+import { Search, FileText, Download, Eye, Users, CheckCircle, MessageSquare, Sparkles } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import { useAuth } from '../context/AuthContext';
 
@@ -130,21 +129,21 @@ export default function DoctorDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 animate-slide-down">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Doctor Dashboard</h1>
-          <p className="mt-2 text-gray-600 text-lg flex items-center gap-2">
+          <p className="mt-2 text-gray-600 dark:text-gray-300 text-lg flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-purple-500" />
-            Welcome, <span className="font-semibold text-gray-900">Dr. {user?.name}</span> - {user?.specialization}
+            Welcome, <span className="font-semibold text-gray-900 dark:text-white">Dr. {user?.name}</span> - {user?.specialization}
           </p>
         </div>
 
         {/* Access Patient Reports */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 border border-blue-100 animate-scale-in">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 border border-blue-100 dark:border-blue-900 animate-scale-in transition-colors duration-200">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             <div className="h-8 w-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <Search className="h-5 w-5 text-white" />
             </div>
             Access Patient Reports
           </h2>
-          <p className="text-gray-600 mb-6">Enter the patient's share code to access their medical reports</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Enter the patient's share code to access their medical reports</p>
           
           <form onSubmit={handleAccessReports} className="flex gap-4">
             <div className="flex-1 group">
@@ -153,7 +152,7 @@ export default function DoctorDashboard() {
                 value={shareCode}
                 onChange={(e) => setShareCode(e.target.value.toUpperCase())}
                 placeholder="Enter patient share code (e.g., A1B2C3D4)"
-                className="w-full px-5 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 uppercase font-mono text-lg hover:border-gray-300"
+                className="w-full px-5 py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 uppercase font-mono text-lg hover:border-gray-300 dark:hover:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 maxLength={8}
               />
             </div>
@@ -170,21 +169,21 @@ export default function DoctorDashboard() {
 
         {/* Patient Info */}
         {patient && (
-          <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-2xl p-8 mb-8 border border-purple-200 shadow-md animate-slide-up">
+          <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900 rounded-2xl p-8 mb-8 border border-purple-200 dark:border-purple-800 shadow-md animate-slide-up transition-colors duration-200">
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <Users className="h-6 w-6 text-purple-600" />
                   Patient Information
                 </h3>
                 <div className="grid grid-cols-2 gap-6 text-sm">
-                  <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl">
-                    <p className="text-gray-600 font-medium">Name</p>
-                    <p className="font-bold text-gray-900 text-lg">{patient.name}</p>
+                  <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm p-4 rounded-xl">
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">Name</p>
+                    <p className="font-bold text-gray-900 dark:text-white text-lg">{patient.name}</p>
                   </div>
-                  <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl">
-                    <p className="text-gray-600 font-medium">Email</p>
-                    <p className="font-semibold text-gray-900">{patient.email}</p>
+                  <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm p-4 rounded-xl">
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">Email</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{patient.email}</p>
                   </div>
                   {patient.phone && (
                     <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl">

@@ -109,15 +109,15 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 animate-slide-down">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Admin Dashboard</h1>
-          <p className="mt-2 text-gray-600 text-lg">Manage users and monitor system activity</p>
+          <p className="mt-2 text-gray-600 dark:text-gray-300 text-lg">Manage users and monitor system activity</p>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-2xl shadow-lg card-hover border border-blue-100 animate-scale-in">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover border border-blue-100 dark:border-blue-900 animate-scale-in transition-colors duration-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Total Users</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">Total Users</p>
                 <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mt-2">{stats.totalUsers}</p>
               </div>
               <div className="h-14 w-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -126,10 +126,10 @@ export default function AdminDashboard() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg card-hover border border-green-100 animate-scale-in" style={{animationDelay: '0.1s'}}>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover border border-green-100 dark:border-green-900 animate-scale-in transition-colors duration-200" style={{animationDelay: '0.1s'}}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Patients</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">Patients</p>
                 <p className="text-4xl font-bold bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent mt-2">{stats.totalPatients}</p>
               </div>
               <div className="h-14 w-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -138,10 +138,10 @@ export default function AdminDashboard() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg card-hover border border-purple-100 animate-scale-in" style={{animationDelay: '0.2s'}}>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover border border-purple-100 dark:border-purple-900 animate-scale-in transition-colors duration-200" style={{animationDelay: '0.2s'}}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Doctors</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">Doctors</p>
                 <p className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mt-2">{stats.totalDoctors}</p>
               </div>
               <div className="h-14 w-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
-import { Shield, Check, X, Lock, Smartphone, AlertTriangle } from 'lucide-react';
+import { Shield, Check, Lock, Smartphone, AlertTriangle } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 

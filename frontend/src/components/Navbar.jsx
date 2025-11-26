@@ -1,11 +1,9 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
-import { Heart, LogOut, User, FileText, Bell, Home, Users, Calendar, HeartPulse, Pill, Star, MessageCircle, Moon, Sun } from 'lucide-react';
+import { Heart, LogOut, User, FileText, Bell, Home, Users, Calendar, HeartPulse, Pill, Star, MessageCircle } from 'lucide-react';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
-  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,7 +35,6 @@ export default function Navbar() {
     } else if (user?.role === 'admin') {
       return [
         { to: '/admin/dashboard', icon: Home, label: 'Dashboard' },
-        { to: '/admin/dashboard', icon: Users, label: 'Manage Users' },
         { to: '/notifications', icon: Bell, label: 'Notifications' }
       ];
     }
@@ -83,19 +80,6 @@ export default function Navbar() {
           </div>
           {/* User Menu */}
           <div className="flex items-center space-x-4">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 transform hover:scale-105"
-              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-yellow-500" />
-              ) : (
-                <Moon className="h-5 w-5 text-blue-600" />
-              )}
-            </button>
-            
             <Link
               to="/profile"
               className={`hidden md:flex items-center space-x-3 px-4 py-2 rounded-xl transition-all duration-300 ${

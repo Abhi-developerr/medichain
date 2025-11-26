@@ -5,7 +5,8 @@ const {
   getPrescriptions,
   getPrescription,
   updatePrescriptionStatus,
-  deletePrescription
+  deletePrescription,
+  checkMedicationInteractions
 } = require('../controllers/prescriptionController');
 const { protect } = require('../middleware/auth');
 
@@ -14,6 +15,8 @@ router.use(protect);
 router.route('/')
   .get(getPrescriptions)
   .post(createPrescription);
+
+router.post('/check-interactions', checkMedicationInteractions);
 
 router.route('/:id')
   .get(getPrescription)

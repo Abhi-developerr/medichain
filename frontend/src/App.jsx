@@ -26,6 +26,10 @@ const Reviews = lazy(() => import('./pages/Reviews'));
 const Messages = lazy(() => import('./pages/Messages'));
 const TwoFactorAuth = lazy(() => import('./pages/TwoFactorAuth'));
 const ActivityLogs = lazy(() => import('./pages/ActivityLogs'));
+const Vaccinations = lazy(() => import('./pages/Vaccinations'));
+const Allergies = lazy(() => import('./pages/Allergies'));
+const FamilyAccounts = lazy(() => import('./pages/FamilyAccounts'));
+const MedicalTimeline = lazy(() => import('./pages/MedicalTimeline'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Optimized loading component with better visual feedback
@@ -230,6 +234,38 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <ActivityLogs />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/vaccinations"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <Vaccinations />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/allergies"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <Allergies />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/family"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <FamilyAccounts />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/timeline"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <MedicalTimeline />
           </ProtectedRoute>
         }
       />

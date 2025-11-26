@@ -59,6 +59,10 @@ app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/messages', require('./routes/messages'));
 app.use('/api/2fa', require('./routes/twoFactor'));
 app.use('/api/audit-logs', require('./routes/auditLogs'));
+app.use('/api/vaccinations', require('./routes/vaccinations'));
+app.use('/api/allergies', require('./routes/allergies'));
+app.use('/api/family', require('./routes/family'));
+app.use('/api/timeline', require('./routes/timeline'));
 
 // Health check
 app.get('/health', (req, res) => {

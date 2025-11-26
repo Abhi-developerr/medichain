@@ -19,12 +19,19 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const root = window.document.documentElement;
     
+    console.log('Theme changed to:', theme);
+    console.log('HTML element:', root);
+    console.log('Current classes:', root.className);
+    
     if (theme === 'dark') {
       root.classList.add('dark');
+      console.log('Added dark class');
     } else {
       root.classList.remove('dark');
+      console.log('Removed dark class');
     }
     
+    console.log('Classes after update:', root.className);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
