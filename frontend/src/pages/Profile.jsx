@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { User, Mail, Phone, MapPin, Briefcase, FileText, Lock, Edit2, Save, X, Camera, Shield, Activity } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Briefcase, FileText, Lock, Edit2, Save, X, Shield, Activity } from 'lucide-react';
 
 const Profile = () => {
   const { user, updateUser, API_URL } = useAuth();

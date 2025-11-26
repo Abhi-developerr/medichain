@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { Activity, Heart, Droplet, Weight, Thermometer, Wind, TrendingUp, Plus, X, Save } from 'lucide-react';
+import { Activity, Heart, Droplet, Weight, Thermometer, Wind, Plus, X, Save } from 'lucide-react';
 
 const HealthMetrics = () => {
   const { API_URL } = useAuth();

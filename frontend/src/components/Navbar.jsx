@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import { Heart, LogOut, User, FileText, Bell, Upload, Home, Users, Activity, BarChart3, Calendar, HeartPulse, Pill, Star, MessageCircle, Moon, Sun } from 'lucide-react';
+import { Heart, LogOut, User, FileText, Bell, Home, Users, Calendar, HeartPulse, Pill, Star, MessageCircle, Moon, Sun } from 'lucide-react';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
