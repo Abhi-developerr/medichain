@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
-import { FileText, Upload, Bell, Copy, CheckCircle, Clock, Sparkles, TrendingUp, Syringe, AlertTriangle, Users, History, Target, FlaskConical, Shield } from 'lucide-react';
+import { FileText, Upload, Bell, Copy, CheckCircle, Clock, Sparkles, TrendingUp, Syringe, AlertTriangle, Users, History, Target, FlaskConical, Shield, Video, Pill, Bot, Scan, Trophy, AlertOctagon } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 
@@ -134,7 +134,7 @@ export default function PatientDashboard() {
           <Link
             to="/patient/upload"
             className="group bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-800/80 p-8 rounded-2xl shadow-lg dark:shadow-xl dark:shadow-blue-900/20 hover:shadow-2xl dark:hover:shadow-blue-800/30 transition-all duration-300 border-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600 transform hover:scale-105 animate-fade-in">
-          >
+         
             <div className="h-14 w-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
               <Upload className="h-7 w-7 text-white" />
             </div>
@@ -145,7 +145,7 @@ export default function PatientDashboard() {
           <Link
             to="/patient/reports"
             className="group bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-800/80 p-8 rounded-2xl shadow-lg dark:shadow-xl dark:shadow-purple-900/20 hover:shadow-2xl dark:hover:shadow-purple-800/30 transition-all duration-300 border-2 border-transparent hover:border-purple-300 dark:hover:border-purple-600 transform hover:scale-105 animate-fade-in" style={{animationDelay: '0.1s'}}>
-          >
+          
             <div className="h-14 w-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
               <FileText className="h-7 w-7 text-white" />
             </div>
@@ -156,7 +156,7 @@ export default function PatientDashboard() {
           <Link
             to="/patient/reminders"
             className="group bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-800/80 p-8 rounded-2xl shadow-lg dark:shadow-xl dark:shadow-pink-900/20 hover:shadow-2xl dark:hover:shadow-pink-800/30 transition-all duration-300 border-2 border-transparent hover:border-pink-300 dark:hover:border-pink-600 transform hover:scale-105 animate-fade-in" style={{animationDelay: '0.2s'}}>
-          >
+          
             <div className="h-14 w-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
               <Bell className="h-7 w-7 text-white" />
             </div>
@@ -175,7 +175,7 @@ export default function PatientDashboard() {
             <Link
               to="/vaccinations"
               className="group bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/40 dark:to-teal-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-teal-800/30 transition-all border border-teal-200 dark:border-teal-700/50 hover:border-teal-400 dark:hover:border-teal-500 backdrop-blur-sm">
-            >
+            
               <Syringe className="h-8 w-8 text-teal-600 dark:text-teal-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Vaccinations</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Track immunization records</p>
@@ -184,7 +184,7 @@ export default function PatientDashboard() {
             <Link
               to="/allergies"
               className="group bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/40 dark:to-red-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-red-800/30 transition-all border border-red-200 dark:border-red-700/50 hover:border-red-400 dark:hover:border-red-500 backdrop-blur-sm">
-            >
+           
               <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Allergies</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Manage allergy information</p>
@@ -193,7 +193,7 @@ export default function PatientDashboard() {
             <Link
               to="/family"
               className="group bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/40 dark:to-purple-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-purple-800/30 transition-all border border-purple-200 dark:border-purple-700/50 hover:border-purple-400 dark:hover:border-purple-500 backdrop-blur-sm">
-            >
+           
               <Users className="h-8 w-8 text-purple-600 dark:text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Family</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Family health records</p>
@@ -202,7 +202,7 @@ export default function PatientDashboard() {
             <Link
               to="/timeline"
               className="group bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/40 dark:to-indigo-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-indigo-800/30 transition-all border border-indigo-200 dark:border-indigo-700/50 hover:border-indigo-400 dark:hover:border-indigo-500 backdrop-blur-sm">
-            >
+           
               <History className="h-8 w-8 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Timeline</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Medical history timeline</p>
@@ -220,7 +220,7 @@ export default function PatientDashboard() {
             <Link
               to="/health-goals"
               className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-blue-800/30 transition-all border border-blue-200 dark:border-blue-700/50 hover:border-blue-400 dark:hover:border-blue-500 backdrop-blur-sm">
-            >
+            
               <Target className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Health Goals</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Track your health objectives</p>
@@ -229,7 +229,7 @@ export default function PatientDashboard() {
             <Link
               to="/lab-tests"
               className="group bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/40 dark:to-green-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-green-800/30 transition-all border border-green-200 dark:border-green-700/50 hover:border-green-400 dark:hover:border-green-500 backdrop-blur-sm">
-            >
+         
               <FlaskConical className="h-8 w-8 text-green-600 dark:text-green-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Lab Tests</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Manage test results</p>
@@ -238,10 +238,130 @@ export default function PatientDashboard() {
             <Link
               to="/insurance"
               className="group bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/40 dark:to-orange-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-orange-800/30 transition-all border border-orange-200 dark:border-orange-700/50 hover:border-orange-400 dark:hover:border-orange-500 backdrop-blur-sm">
-            >
+            
               <Shield className="h-8 w-8 text-orange-600 dark:text-orange-400 mb-2 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-gray-800 dark:text-gray-100">Insurance</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Policy & claims management</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Smart Health Features */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <div className="h-2 w-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full animate-pulse"></div>
+            Smart Health Features
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link
+              to="/video-consultations"
+              className="group bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/40 dark:to-purple-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-purple-800/30 transition-all border border-purple-200 dark:border-purple-700/50 hover:border-purple-400 dark:hover:border-purple-500 backdrop-blur-sm">
+            
+              <Video className="h-8 w-8 text-purple-600 dark:text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Video Consultations</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Connect with doctors online</p>
+            </Link>
+
+            <Link
+              to="/medication-tracker"
+              className="group bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/40 dark:to-pink-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-pink-800/30 transition-all border border-pink-200 dark:border-pink-700/50 hover:border-pink-400 dark:hover:border-pink-500 backdrop-blur-sm">
+           
+              <Pill className="h-8 w-8 text-pink-600 dark:text-pink-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Medication Tracker</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Track medication adherence</p>
+            </Link>
+
+            <Link
+              to="/ai-assistant"
+              className="group bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/40 dark:to-cyan-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-cyan-800/30 transition-all border border-cyan-200 dark:border-cyan-700/50 hover:border-cyan-400 dark:hover:border-cyan-500 backdrop-blur-sm">
+           
+              <Bot className="h-8 w-8 text-cyan-600 dark:text-cyan-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">AI Health Assistant</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Get instant health guidance</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Advanced Features */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <div className="h-2 w-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full animate-pulse"></div>
+            Advanced Tools
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              to="/document-scanner"
+              className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-blue-800/30 transition-all border border-blue-200 dark:border-blue-700/50 hover:border-blue-400 dark:hover:border-blue-500 backdrop-blur-sm">
+              <Scan className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Document Scanner</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">OCR medical documents</p>
+            </Link>
+
+            <Link
+              to="/community-forum"
+              className="group bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/40 dark:to-purple-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-purple-800/30 transition-all border border-purple-200 dark:border-purple-700/50 hover:border-purple-400 dark:hover:border-purple-500 backdrop-blur-sm">
+              <Users className="h-8 w-8 text-purple-600 dark:text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Community Forum</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Connect with others</p>
+            </Link>
+
+            <Link
+              to="/wellness-programs"
+              className="group bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/40 dark:to-orange-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-orange-800/30 transition-all border border-orange-200 dark:border-orange-700/50 hover:border-orange-400 dark:hover:border-orange-500 backdrop-blur-sm">
+              <Trophy className="h-8 w-8 text-orange-600 dark:text-orange-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Wellness Programs</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Fitness challenges</p>
+            </Link>
+
+            <Link
+              to="/emergency-sos"
+              className="group bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/40 dark:to-red-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-red-800/30 transition-all border border-red-200 dark:border-red-700/50 hover:border-red-400 dark:hover:border-red-500 backdrop-blur-sm">
+              <AlertOctagon className="h-8 w-8 text-red-600 dark:text-red-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Emergency SOS</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Medical ID & alerts</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Clinical & Analytics Tools */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <div className="h-8 w-8 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center">
+              <TrendingUp className="h-5 w-5 text-white" />
+            </div>
+            Clinical & Analytics Tools
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link
+              to="/telemedicine"
+              className="group bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/40 dark:to-cyan-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-cyan-800/30 transition-all border border-cyan-200 dark:border-cyan-700/50 hover:border-cyan-400 dark:hover:border-cyan-500 backdrop-blur-sm">
+              <Video className="h-8 w-8 text-cyan-600 dark:text-cyan-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Telemedicine</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Virtual consultations</p>
+            </Link>
+
+            <Link
+              to="/health-records"
+              className="group bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/40 dark:to-teal-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-teal-800/30 transition-all border border-teal-200 dark:border-teal-700/50 hover:border-teal-400 dark:hover:border-teal-500 backdrop-blur-sm">
+              <FileText className="h-8 w-8 text-teal-600 dark:text-teal-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Health Records</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Complete EHR system</p>
+            </Link>
+
+            <Link
+              to="/symptom-checker"
+              className="group bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/40 dark:to-indigo-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-indigo-800/30 transition-all border border-indigo-200 dark:border-indigo-700/50 hover:border-indigo-400 dark:hover:border-indigo-500 backdrop-blur-sm">
+              <AlertTriangle className="h-8 w-8 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Symptom Checker</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">AI-powered analysis</p>
+            </Link>
+
+            <Link
+              to="/health-analytics"
+              className="group bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/40 dark:to-violet-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-violet-800/30 transition-all border border-violet-200 dark:border-violet-700/50 hover:border-violet-400 dark:hover:border-violet-500 backdrop-blur-sm">
+              <TrendingUp className="h-8 w-8 text-violet-600 dark:text-violet-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Health Analytics</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Insights & trends</p>
             </Link>
           </div>
         </div>

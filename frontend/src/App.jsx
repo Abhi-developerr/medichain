@@ -23,7 +23,7 @@ const Appointments = lazy(() => import('./pages/Appointments'));
 const HealthMetrics = lazy(() => import('./pages/HealthMetrics'));
 const Prescriptions = lazy(() => import('./pages/Prescriptions'));
 const Reviews = lazy(() => import('./pages/Reviews'));
-const Messages = lazy(() => import('./pages/Messages'));
+const MessagesRealtime = lazy(() => import('./pages/MessagesRealtime'));
 const TwoFactorAuth = lazy(() => import('./pages/TwoFactorAuth'));
 const ActivityLogs = lazy(() => import('./pages/ActivityLogs'));
 const Vaccinations = lazy(() => import('./pages/Vaccinations'));
@@ -33,6 +33,17 @@ const MedicalTimeline = lazy(() => import('./pages/MedicalTimeline'));
 const HealthGoals = lazy(() => import('./pages/HealthGoals'));
 const LabTests = lazy(() => import('./pages/LabTests'));
 const Insurance = lazy(() => import('./pages/Insurance'));
+const VideoConsultations = lazy(() => import('./pages/VideoConsultations'));
+const MedicationTracker = lazy(() => import('./pages/MedicationTracker'));
+const AIHealthAssistant = lazy(() => import('./pages/AIHealthAssistant'));
+const DocumentScanner = lazy(() => import('./pages/DocumentScanner'));
+const CommunityForum = lazy(() => import('./pages/CommunityForum'));
+const WellnessPrograms = lazy(() => import('./pages/WellnessPrograms'));
+const EmergencySOS = lazy(() => import('./pages/EmergencySOS'));
+const Telemedicine = lazy(() => import('./pages/Telemedicine'));
+const HealthRecords = lazy(() => import('./pages/HealthRecords'));
+const SymptomChecker = lazy(() => import('./pages/SymptomChecker'));
+const HealthAnalytics = lazy(() => import('./pages/HealthAnalytics'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Optimized loading component with better visual feedback
@@ -220,7 +231,7 @@ function AppRoutes() {
         path="/messages"
         element={
           <ProtectedRoute allowedRoles={['patient', 'doctor']}>
-            <Messages />
+            <MessagesRealtime />
           </ProtectedRoute>
         }
       />
@@ -293,6 +304,94 @@ function AppRoutes() {
         element={
           <ProtectedRoute allowedRoles={['patient']}>
             <Insurance />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/video-consultations"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <VideoConsultations />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/medication-tracker"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <MedicationTracker />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/ai-assistant"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <AIHealthAssistant />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/document-scanner"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <DocumentScanner />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/community-forum"
+        element={
+          <ProtectedRoute>
+            <CommunityForum />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/wellness-programs"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <WellnessPrograms />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/emergency-sos"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <EmergencySOS />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/telemedicine"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <Telemedicine />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/health-records"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <HealthRecords />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/symptom-checker"
+        element={
+          <ProtectedRoute allowedRoles={['patient']}>
+            <SymptomChecker />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/health-analytics"
+        element={
+          <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+            <HealthAnalytics />
           </ProtectedRoute>
         }
       />

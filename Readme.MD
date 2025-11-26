@@ -200,7 +200,7 @@ mongod --version  # v5 or higher
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/medichain.git
+git clone https://github.com/Abhi-developerr/medichain.git
 cd medichain
 ```
 
@@ -237,9 +237,9 @@ NODE_ENV=development
 MONGODB_URI=mongodb://localhost:27017/medichain
 
 # JWT
-JWT_SECRET=abhi
+JWT_SECRET=your secretkey
 JWT_EXPIRE=7d
-JWT_REFRESH_SECRET=abhishek
+JWT_REFRESH_SECRET=your refresh secret
 
 # Email (Gmail)
 EMAIL_HOST=smtp.gmail.com
@@ -561,8 +561,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [Abhi-developerr](https://github.com/Abhi-developerr)
+- Email: ak91220947951@gmail.com
 
 ---
 
@@ -580,7 +580,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For issues and questions:
 - 📫 Email: support@medichain.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/medichain/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/Abhi-developerr/medichain/issues)
 - 📖 Docs: [Full Documentation](https://docs.medichain.com)
 
 ---

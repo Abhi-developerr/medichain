@@ -53,4 +53,7 @@ export const adminAPI = {
   getAllReports: (params) => API.get('/admin/reports', { params })
 };
 
+// Named export for convenience
+export const api = API;
+
 export default API;

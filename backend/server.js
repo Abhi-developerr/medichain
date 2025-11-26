@@ -6,9 +6,24 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const compression = require('compression');
 const { connectDB } = require('./config/db');
+const http = require('http');
+const { Server } = require('socket.io');
 
 // Initialize Express
 const app = express();
+const server = http.createServer(app);
+
+// Initialize Socket.io
+const io = new Server(server, {
+  cors: {
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      process.env.FRONTEND_URL
+    ].filter(Boolean),
+    credentials: true
+  }
+});
 
 // Connect to Database
 connectDB();
@@ -66,6 +81,17 @@ app.use('/api/timeline', require('./routes/timeline'));
 app.use('/api/health-goals', require('./routes/healthGoals'));
 app.use('/api/lab-tests', require('./routes/labTests'));
 app.use('/api/insurance', require('./routes/insurance'));
+app.use('/api/video-consultations', require('./routes/videoConsultations'));
+app.use('/api/medication-tracker', require('./routes/medicationTracker'));
+app.use('/api/health-chat', require('./routes/healthChat'));
+app.use('/api/document-scanner', require('./routes/documentScanner'));
+app.use('/api/forum', require('./routes/forum'));
+app.use('/api/wellness-programs', require('./routes/wellnessPrograms'));
+app.use('/api/emergency-sos', require('./routes/emergencySOS'));
+app.use('/api/telemedicine', require('./routes/telemedicine'));
+app.use('/api/health-records', require('./routes/healthRecords'));
+app.use('/api/symptom-checker', require('./routes/symptomChecker'));
+app.use('/api/health-analytics', require('./routes/healthAnalytics'));
 
 // Health check
 app.get('/health', (req, res) => {
@@ -112,7 +138,74 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
+// Socket.io connection handling
+const onlineUsers = new Map(); // userId -> socketId
+
+io.on('connection', (socket) => {
+  console.log('✅ User connected:', socket.id);
+
+  // User joins with their ID
+  socket.on('user:join', (userId) => {
+    onlineUsers.set(userId, socket.id);
+    socket.userId = userId;
+    socket.join(userId); // Join room with user's ID
+    io.emit('users:online', Array.from(onlineUsers.keys()));
+    console.log(`📱 User ${userId} joined`);
+  });
+
+  // Send message
+  socket.on('message:send', async (data) => {
+    const { receiverId, message } = data;
+    const receiverSocketId = onlineUsers.get(receiverId);
+    
+    // Emit to receiver if online
+    if (receiverSocketId) {
+      io.to(receiverId).emit('message:receive', message);
+    }
+    
+    // Emit back to sender for confirmation
+    socket.emit('message:sent', message);
+  });
+
+  // Typing indicator
+  socket.on('typing:start', (receiverId) => {
+    const receiverSocketId = onlineUsers.get(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverId).emit('typing:user', { userId: socket.userId, typing: true });
+    }
+  });
+
+  socket.on('typing:stop', (receiverId) => {
+    const receiverSocketId = onlineUsers.get(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverId).emit('typing:user', { userId: socket.userId, typing: false });
+    }
+  });
+
+  // Mark message as read
+  socket.on('message:read', (data) => {
+    const { messageId, senderId } = data;
+    const senderSocketId = onlineUsers.get(senderId);
+    if (senderSocketId) {
+      io.to(senderId).emit('message:read', { messageId });
+    }
+  });
+
+  // Disconnect
+  socket.on('disconnect', () => {
+    if (socket.userId) {
+      onlineUsers.delete(socket.userId);
+      io.emit('users:online', Array.from(onlineUsers.keys()));
+      console.log(`📴 User ${socket.userId} disconnected`);
+    }
+  });
+});
+
+// Make io accessible in routes
+app.set('io', io);
+
+// Start server
+server.listen(PORT, () => {
   console.log(`
 ╔═══════════════════════════════════════════╗
 ║                                           ║

@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { Search, FileText, Download, Eye, Users, CheckCircle, MessageSquare, Sparkles } from 'lucide-react';
+import { Search, FileText, Download, Eye, Users, CheckCircle, MessageSquare, Sparkles, Video, TrendingUp, Activity } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import { useAuth } from '../context/AuthContext';
 
@@ -133,6 +134,44 @@ export default function DoctorDashboard() {
             <Sparkles className="h-5 w-5 text-purple-500" />
             Welcome, <span className="font-semibold text-gray-900 dark:text-white">Dr. {user?.name}</span> - {user?.specialization}
           </p>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Access</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link
+              to="/telemedicine"
+              className="group bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/40 dark:to-cyan-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-cyan-800/30 transition-all border border-cyan-200 dark:border-cyan-700/50 hover:border-cyan-400 dark:hover:border-cyan-500">
+              <Video className="h-8 w-8 text-cyan-600 dark:text-cyan-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Telemedicine</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Virtual consultations</p>
+            </Link>
+
+            <Link
+              to="/health-records"
+              className="group bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/40 dark:to-teal-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-teal-800/30 transition-all border border-teal-200 dark:border-teal-700/50 hover:border-teal-400 dark:hover:border-teal-500">
+              <FileText className="h-8 w-8 text-teal-600 dark:text-teal-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Health Records</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Patient EHR access</p>
+            </Link>
+
+            <Link
+              to="/health-analytics"
+              className="group bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/40 dark:to-violet-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-violet-800/30 transition-all border border-violet-200 dark:border-violet-700/50 hover:border-violet-400 dark:hover:border-violet-500">
+              <TrendingUp className="h-8 w-8 text-violet-600 dark:text-violet-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Analytics</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Patient insights</p>
+            </Link>
+
+            <Link
+              to="/messages"
+              className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl shadow hover:shadow-lg dark:hover:shadow-blue-800/30 transition-all border border-blue-200 dark:border-blue-700/50 hover:border-blue-400 dark:hover:border-blue-500">
+              <MessageSquare className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100">Messages</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Patient communication</p>
+            </Link>
+          </div>
         </div>
 
         {/* Access Patient Reports */}
