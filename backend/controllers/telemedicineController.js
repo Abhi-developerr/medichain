@@ -3,7 +3,7 @@ const Telemedicine = require('../models/Telemedicine');
 // Get all appointments
 exports.getAppointments = async (req, res) => {
   try {
-    const query = { [user.role === 'doctor' ? 'doctor' : 'patient']: req.user._id };
+    const query = { [req.user.role === 'doctor' ? 'doctor' : 'patient']: req.user._id };
     
     if (req.query.status) query.status = req.query.status;
     if (req.query.upcoming) {

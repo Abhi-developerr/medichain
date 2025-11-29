@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { api } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 function Telemedicine() {
+  const { user } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -84,13 +86,17 @@ function Telemedicine() {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">Telemedicine</h1>
-        <button
-          onClick={() => setShowModal(true)}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          Schedule Appointment
-        </button>
+        <h1 className="text-3xl font-bold text-gray-900">
+          {user?.role === 'doctor' ? 'My Consultations' : 'Telemedicine'}
+        </h1>
+        {user?.role === 'patient' && (
+          <button
+            onClick={() => setShowModal(true)}
+            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            Schedule Appointment
+          </button>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -99,9 +105,15 @@ function Telemedicine() {
             <div className="flex justify-between items-start mb-4">
               <div>
                 <h3 className="font-semibold text-lg">
-                  {appointment.doctor?.name || 'Dr. Unknown'}
+                  {user?.role === 'doctor' 
+                    ? appointment.patient?.name || 'Patient' 
+                    : appointment.doctor?.name || 'Dr. Unknown'}
                 </h3>
-                <p className="text-sm text-gray-600">{appointment.doctor?.specialty}</p>
+                <p className="text-sm text-gray-600">
+                  {user?.role === 'doctor' 
+                    ? appointment.patient?.email 
+                    : appointment.doctor?.specialty}
+                </p>
               </div>
               <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(appointment.status)}`}>
                 {appointment.status}
@@ -169,12 +181,16 @@ function Telemedicine() {
 
       {appointments.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">No appointments scheduled</p>
+          <p className="text-gray-500 text-lg">
+            {user?.role === 'doctor' 
+              ? 'No consultations scheduled' 
+              : 'No appointments scheduled'}
+          </p>
         </div>
       )}
 
-      {/* Appointment Modal */}
-      {showModal && (
+      {/* Appointment Modal - Only for Patients */}
+      {showModal && user?.role === 'patient' && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-8 max-w-md w-full">
             <h2 className="text-2xl font-bold mb-4">Schedule Appointment</h2>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -7,6 +8,7 @@ import {
 } from 'recharts';
 
 function HealthAnalytics() {
+  const { user } = useAuth();
   const [analytics, setAnalytics] = useState(null);
   const [loading, setLoading] = useState(false);
   const [period, setPeriod] = useState('monthly');
@@ -356,6 +358,14 @@ function HealthAnalytics() {
           <option value="yearly">Last Year</option>
         </select>
       </div>
+
+      {user?.role === 'doctor' && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+          <p className="text-yellow-800">
+            <strong>Doctor View:</strong> Currently showing your own analytics. Use patient selection from dashboard to view patient-specific analytics.
+          </p>
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="flex gap-4 mb-6 border-b">

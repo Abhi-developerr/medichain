@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { api } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 function HealthRecords() {
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('personal-info');
   const [records, setRecords] = useState({});
   const [loading, setLoading] = useState(true);
@@ -243,15 +245,25 @@ function HealthRecords() {
     <div className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-900">Health Records</h1>
-        <button
-          onClick={() => setEditMode(!editMode)}
-          className={`px-6 py-2 rounded-lg ${
-            editMode ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'
-          } text-white`}
-        >
-          {editMode ? 'Save Changes' : 'Edit Records'}
-        </button>
+        {user?.role === 'patient' && (
+          <button
+            onClick={() => setEditMode(!editMode)}
+            className={`px-6 py-2 rounded-lg ${
+              editMode ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'
+            } text-white`}
+          >
+            {editMode ? 'Save Changes' : 'Edit Records'}
+          </button>
+        )}
       </div>
+
+      {user?.role === 'doctor' && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+          <p className="text-yellow-800">
+            <strong>Doctor View:</strong> Use the patient share code access from your dashboard to view specific patient records.
+          </p>
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="flex flex-wrap gap-2 mb-6 border-b">
