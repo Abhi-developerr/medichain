@@ -1,4 +1,5 @@
 const HealthRecord = require('../models/HealthRecord');
+const { clearUserCache } = require('../middleware/cache');
 
 // Get all records for user
 exports.getRecords = async (req, res) => {
@@ -60,6 +61,9 @@ exports.updateRecord = async (req, res) => {
       record.updatedBy = req.user._id;
       await record.save();
     }
+    
+    // Clear cache after update
+    await clearUserCache(req.user._id);
     
     res.json({ success: true, record });
   } catch (error) {

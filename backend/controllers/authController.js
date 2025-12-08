@@ -2,6 +2,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const { sendEmail, emailTemplates } = require('../utils/sendEmail');
+const { clearUserCache } = require('../middleware/cache');
 
 // Generate JWT Token
 const generateToken = (id) => {
@@ -307,10 +308,13 @@ exports.updateProfile = async (req, res) => {
 
     await user.save();
 
+    // Clear cache after profile update
+    await clearUserCache(req.user._id);
+
     res.status(200).json({
       success: true,
       message: 'Profile updated successfully',
-      user
+      user: {
     });
   } catch (error) {
     console.error('Update profile error:', error);
@@ -449,6 +453,11 @@ exports.changePassword = async (req, res) => {
 // @route   POST /api/auth/logout
 // @access  Private
 exports.logout = async (req, res) => {
+  // Clear cache on logout
+  if (req.user?._id) {
+    await clearUserCache(req.user._id);
+  }
+  
   res.status(200).json({
     success: true,
     message: 'Logged out successfully'

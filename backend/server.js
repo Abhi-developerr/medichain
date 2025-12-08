@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const compression = require('compression');
 const { connectDB } = require('./config/db');
+const { redisClient, cache } = require('./config/redis');
 const http = require('http');
 const { Server } = require('socket.io');
 

@@ -81,6 +81,12 @@ A comprehensive, secure, full-stack web application for managing medical records
 - **PDFKit** - PDF generation
 - **Compression** - Gzip response compression
 
+### Performance
+- **Cluster Mode** - Multi-core load balancing (see [CLUSTER_MODE.md](./CLUSTER_MODE.md))
+- **Redis Caching** - Fast data caching layer (see [REDIS_INTEGRATION.md](./REDIS_INTEGRATION.md))
+- **Connection Pooling** - Optimized database connections
+- **Response Compression** - Reduced bandwidth usage
+
 ### Security
 - **Helmet** - HTTP headers security
 - **CORS** - Cross-origin protection
@@ -97,7 +103,8 @@ A comprehensive, secure, full-stack web application for managing medical records
 medichain/
 ├── backend/
 │   ├── config/
-│   │   └── db.js                      # Database configuration with pooling
+│   │   ├── db.js                      # Database configuration with pooling
+│   │   └── redis.js                   # Redis client & cache helpers
 │   ├── models/
 │   │   ├── User.js                    # User model (Patient/Doctor/Admin)
 │   │   ├── Report.js                  # Medical report model
@@ -144,11 +151,13 @@ medichain/
 │   ├── middleware/
 │   │   ├── auth.js                    # JWT verification & authorization
 │   │   ├── upload.js                  # File upload handling
+│   │   ├── cache.js                   # Redis caching middleware
 │   │   └── auditLog.js                # Audit logging middleware
 │   ├── utils/
 │   │   └── sendEmail.js               # Email utilities
 │   ├── .env                           # Environment variables
-│   ├── server.js                      # Entry point
+│   ├── server.js                      # Application entry point
+│   ├── cluster.js                     # Cluster mode entry point
 │   └── package.json                   # Dependencies
 │
 └── frontend/
@@ -209,19 +218,35 @@ cd medichain
 cd backend
 npm install
 # Edit .env with your configuration
-npm run dev  # or node server.js
+npm run dev  # Development mode (single instance)
+# npm start  # Production mode (cluster with load balancing)
 ```
 
-### 3. Setup Frontend
+### 3. Install & Start Redis (Optional but Recommended)
+```bash
+# Windows: Download from https://github.com/microsoftarchive/redis/releases
+# Or use Docker:
+docker run -d -p 6379:6379 redis
+
+# Linux/Mac:
+sudo apt-get install redis-server  # Ubuntu
+brew install redis                 # Mac
+redis-server
+```
+
+### 4. Setup Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### 4. Access Application
+### 5. Access Application
 - Frontend: http://localhost:3000 (or 3001 if 3000 is in use)
 - Backend API: http://localhost:5000
+- Redis (optional): localhost:6379
+
+**Note**: The application works without Redis, but caching provides significant performance improvements.
 
 ---
 
@@ -252,6 +277,11 @@ MAX_FILE_SIZE=10485760
 
 # Frontend URL
 FRONTEND_URL=http://localhost:3000
+
+# Redis (optional but recommended for caching)
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=              # Leave empty for local development
 ```
 
 ---
