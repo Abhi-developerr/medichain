@@ -315,7 +315,7 @@ exports.updateProfile = async (req, res) => {
       success: true,
       message: 'Profile updated successfully',
       user: {
-    });
+    }});
   } catch (error) {
     console.error('Update profile error:', error);
     res.status(500).json({
